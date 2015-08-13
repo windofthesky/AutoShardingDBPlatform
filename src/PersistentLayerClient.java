@@ -1,14 +1,15 @@
 /**
- * @Copyright to Yonggang.Yang.
+ * @Copyright to Hades.Yang 2015~2020.
  * @ClassName: PersistentLayerClient.
- * @Project: AutoShardingDBPlatform
+ * @Project: AutoShardingDBPlatform.
  * @Package: generaldbplatform.
  * @Description: The basic client of the auto sharding persistent layer.
- * @Author: Yonggang.Yang 
- * @Version: V2.0
+ * @Author: Hades.Yang 
+ * @Version: V1.0
  * @Date: 2015-07-21
  * @History: 
  *    1.2015-07-21 First version of PersistentLayerClient was written.
+ *    2.2015-08-13 Modify subscribe interface,add ConfigDBClient support. 
  */
 
 package generaldbplatform;
@@ -52,6 +53,12 @@ public class PersistentLayerClient
      * @Description: the temp MongoClient, which is used as a temp variable.
      */
     private MongoClient mongoClient_temp = null;
+	
+    /**
+     * @FieldName: configdb.
+     * @Description: the ConfigServer database client.
+     */
+	private ConfigDBClient configdb;	
     
 	/**
      * @FieldName: PERSIST_SERVER_NUM_OLD.
@@ -79,13 +86,26 @@ public class PersistentLayerClient
     protected boolean PersistInitOK = false;
 	
     /**
+     * @Title: ConfigDBInit.
+     * @Description: this function is used to initialize the configdb.
+	 * @param serverinfo_0: the first redis server node ip & port information in the redis sentinel.
+	 * @param serverinfo_1: the second redis server node ip & port information in the redis sentinel.
+     * @param serverinfo_2: the third redis server node ip & port information in the redis sentinel.
+     * @return none.
+     */
+	private void ConfigDBInit(String serverinfo_0, String serverinfo_1, String serverinfo_2)
+	{
+		this.configdb = new ConfigDBClient(serverinfo_0, serverinfo_1, serverinfo_2);
+	}
+	
+    /**
      * @Title: Subscriber.
      * @Description: the function which is used to subscribe one channel from redis server.
      * @param ip: the redis server ip address. 
 	 * @param channel: the specific channel which was subscribed by the application.
      * @return none.
      */
-	private void Subscriber(final String ip, final String channel)
+	private void Subscriber(final String channel)
 	{
 		final JedisPubSub jedisPubSub = new JedisPubSub() 
 		{
@@ -106,17 +126,32 @@ public class PersistentLayerClient
 			public void run() 
 			{
 				//System.out.println("Start!!!"); 
-				try 
-				{
-					Jedis jedis = new Jedis(ip, 6379, 0);  //0 means no timeout.
-					jedis.subscribe(jedisPubSub, channel);
-					jedis.quit();
-					jedis.close();
-				} 
-				catch (Exception e) 
-				{
-				    //e.printStackTrace();
-				}
+				
+                Jedis jedisConnector = null;
+		        boolean borrowOrOprSuccess = true;
+		
+		        try 
+		        {
+			        jedisConnector = configdb.db_client.getResource();
+			        jedisConnector.subscribe(jedisPubSub, channel);
+		        }
+		        catch(JedisConnectionException e)
+		        {
+			        borrowOrOprSuccess = false;
+			        if(jedisConnector != null)
+			        {
+				        configdb.db_client.returnBrokenResource(jedisConnector);
+				        jedisConnector = null;
+			        }
+			        throw e;
+		        }
+		        finally
+		        {
+			        if(borrowOrOprSuccess && (jedisConnector!=null))
+			        {
+				        configdb.db_client.returnResource(jedisConnector);
+			        }
+		        }
 			}
 		}, "subscriberThread").start();
 	}
@@ -247,11 +282,13 @@ public class PersistentLayerClient
     /**
      * @Title: PersistentLayerClient.
      * @Description: the construct function of this PersistentLayerClient class.
-     * @param ip: the redis server which is used to publish the persistent database info.
+	 * @param serverinfo_0: the first redis server node ip & port information in the redis sentinel.
+	 * @param serverinfo_1: the second redis server node ip & port information in the redis sentinel.
+     * @param serverinfo_2: the third redis server node ip & port information in the redis sentinel.
 	 * @param channel: the channel that subscribed by the PersistentLayerClient.
      * @return none.
      */
-	public PersistentLayerClient(String ip, String channel)
+	public PersistentLayerClient(String serverinfo_0, String serverinfo_1, String serverinfo_2, String channel)
 	{
 		this.mongoOption = new MongoClientOptions.Builder().socketKeepAlive(true)
 				           .connectTimeout(50000)
@@ -261,8 +298,8 @@ public class PersistentLayerClient
 				           .maxWaitTime(1000*60*2)
 				           .threadsAllowedToBlockForConnectionMultiplier(40)
 				           .writeConcern(WriteConcern.NORMAL).build();
-		
+		this.ConfigDBInit(serverinfo_0, serverinfo_1, serverinfo_2);
 		this.PersistShardingMap = new HashMap<Integer, MongoClient>();
-		this.Subscriber(ip, channel);
+		this.Subscriber(channel);
 	}
 }
