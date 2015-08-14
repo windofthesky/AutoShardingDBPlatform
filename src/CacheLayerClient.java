@@ -34,7 +34,7 @@ import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
  */
 public class CacheLayerClient 
 {
-	/**
+    /**
      * @FieldName: SentinelPool_TEMP.
      * @Description: the temp redis sentinel pool which is used when connect redis server when initialize the CacheShardingMap.
      */
@@ -46,14 +46,14 @@ public class CacheLayerClient
      */ 
     private GenericObjectPoolConfig PoolConfig;
     
-	/**
+    /**
      * @FieldName: CurrentCacheMapIndex.
      * @Description: the index of the CacheShardingMap,which to be inserted.
      *               (when new node information comes,this index shows HashMap index with the JedisSentinelPool)
      */
     private int CurrentCacheMapIndex = 0;  //the index of map tobe insert.
     
-	/**
+    /**
      * @FieldName:SentinelPoolTimeout.
      * @Description: Member variable,the timeout value which is used when create the JedisSentinelPool.
      */
@@ -63,19 +63,19 @@ public class CacheLayerClient
      * @FieldName: configdb.
      * @Description: the ConfigServer database client.
      */
-	private ConfigDBClient configdb;
+    private ConfigDBClient configdb;
 	
     /**
      * @FieldName: CACHE_SERVER_NUM_OLD.
      * @Description: the new mod_number which is used to store/fetch value from the old HashMap.
      */
-	protected int CACHE_SERVER_NUM_OLD = 1;
+    protected int CACHE_SERVER_NUM_OLD = 1;
 	
-	/**
+    /**
      * @FieldName: CACHE_SERVER_NUM_NEW.
      * @Description: the new mod_number which is used to store/fetch value from the new HashMap.
      */
-	protected int CACHE_SERVER_NUM_NEW = 1;
+     protected int CACHE_SERVER_NUM_NEW = 1;
     
     /**
      * @FieldName: CacheShardingMap.
@@ -97,10 +97,10 @@ public class CacheLayerClient
      * @param serverinfo_2: the third redis server node ip & port information in the redis sentinel.
      * @return none.
      */
-	private void ConfigDBInit(String serverinfo_0, String serverinfo_1, String serverinfo_2)
-	{
-		this.configdb = new ConfigDBClient(serverinfo_0, serverinfo_1, serverinfo_2);
-	}
+    private void ConfigDBInit(String serverinfo_0, String serverinfo_1, String serverinfo_2)
+    {
+	this.configdb = new ConfigDBClient(serverinfo_0, serverinfo_1, serverinfo_2);
+    }
 
     /**
      * @Title: Subscriber.
@@ -205,7 +205,7 @@ public class CacheLayerClient
 			CurrentCacheMapIndex += 1;
 		}
 		
-        //check the CacheShardingMap size and assign the value to CACHE_SERVER_NUM_NEW.
+                //check the CacheShardingMap size and assign the value to CACHE_SERVER_NUM_NEW.
 		if(CacheShardingMap.size()>0)
 		{
 			this.CACHE_SERVER_NUM_NEW = CacheShardingMap.size(); 
@@ -220,10 +220,10 @@ public class CacheLayerClient
      * @param key: int value which is indicates the value.
      * @return JedisSentinelPool: the Redis sentinel client which is used to access the Redis sentinel.
      */
-	public JedisSentinelPool getOldShardedCacheClient(int key)
-	{
-	    return this.CacheShardingMap.get(key % this.CACHE_SERVER_NUM_OLD);
-	}
+    public JedisSentinelPool getOldShardedCacheClient(int key)
+    {
+        return this.CacheShardingMap.get(key % this.CACHE_SERVER_NUM_OLD);
+    }
 	
     /**
      * @Title: getNewShardedCacheClient.
@@ -231,10 +231,10 @@ public class CacheLayerClient
      * @param key: int value which is indicates the value.
      * @return JedisSentinelPool: the Redis sentinel client which is used to access the Redis sentinel.
      */
-	public JedisSentinelPool getNewShardedCacheClient(int key)
-	{
-		return this.CacheShardingMap.get(key % this.CACHE_SERVER_NUM_NEW);
-	}
+    public JedisSentinelPool getNewShardedCacheClient(int key)
+    {
+	return this.CacheShardingMap.get(key % this.CACHE_SERVER_NUM_NEW);
+    }
 	
     /**
      * @Title: getOldShardedCacheClient
@@ -242,10 +242,10 @@ public class CacheLayerClient
      * @param key:long value which is indicates the value.
      * @return JedisSentinelPool: the Redis sentinel client which is used to access the Redis sentinel.
      */
-	public JedisSentinelPool getOldShardedCacheClient(long key)
-	{
-	    return this.CacheShardingMap.get(((int)(key & 0xFF)) % this.CACHE_SERVER_NUM_OLD);
-	}
+    public JedisSentinelPool getOldShardedCacheClient(long key)
+    {
+        return this.CacheShardingMap.get(((int)(key & 0xFF)) % this.CACHE_SERVER_NUM_OLD);
+    }
 	
     /**
      * @Title: getNewShardedCacheClient.
