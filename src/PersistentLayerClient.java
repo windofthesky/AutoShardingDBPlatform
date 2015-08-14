@@ -35,20 +35,20 @@ import redis.clients.jedis.JedisPubSub;
 
 public class PersistentLayerClient 
 {
-	/**
+    /**
      * @FieldName: mongoOption.
      * @Description: the config option for each of the MongoClient,shows the basic connection information.
      */
     private MongoClientOptions mongoOption = null;
     
-	/**
+    /**
      * @FieldName: CurrentPersistMapIndex.
      * @Description: the index of the PersistShardingMap,which to be inserted.
      *               (when new node information comes,this index shows HashMap index with the MongoClient)
      */
     private int CurrentPersistMapIndex = 0;  
     
-	/**
+    /**
      * @FieldName: mongoClient_temp.
      * @Description: the temp MongoClient, which is used as a temp variable.
      */
@@ -58,28 +58,28 @@ public class PersistentLayerClient
      * @FieldName: configdb.
      * @Description: the ConfigServer database client.
      */
-	private ConfigDBClient configdb;	
+    private ConfigDBClient configdb;	
     
-	/**
+    /**
      * @FieldName: PERSIST_SERVER_NUM_OLD.
      * @Description: the old mod-number which is used to store/fetch value from the old HashMap.
      */
-	protected int PERSIST_SERVER_NUM_OLD = 1;
+    protected int PERSIST_SERVER_NUM_OLD = 1;
 	
-	/**
+    /**
      * @FieldName: PERSIST_SERVER_NUM_NEW.
      * @Description: the new mod_number which is used to store/fetch value from the new HashMap.
      */
-	protected int PERSIST_SERVER_NUM_NEW = 1;
+    protected int PERSIST_SERVER_NUM_NEW = 1;
 	
-	/**
+    /**
      * @FieldName: PersistShardingMap.
      * @Description: the HashMap which is used to store the different MongoClient.
      *               the MongoClient connected with a MongoDB replica-set.
      */
     protected Map<Integer, MongoClient> PersistShardingMap;  
     
-	/**
+    /**
      * @FieldName: PersistInitOK.
      * @Description: the boolean value which shows the persistent database client initialize ok or not.
      */
@@ -88,21 +88,21 @@ public class PersistentLayerClient
     /**
      * @Title: ConfigDBInit.
      * @Description: this function is used to initialize the configdb.
-	 * @param serverinfo_0: the first redis server node ip & port information in the redis sentinel.
-	 * @param serverinfo_1: the second redis server node ip & port information in the redis sentinel.
+     * @param serverinfo_0: the first redis server node ip & port information in the redis sentinel.
+     * @param serverinfo_1: the second redis server node ip & port information in the redis sentinel.
      * @param serverinfo_2: the third redis server node ip & port information in the redis sentinel.
      * @return none.
      */
-	private void ConfigDBInit(String serverinfo_0, String serverinfo_1, String serverinfo_2)
-	{
-		this.configdb = new ConfigDBClient(serverinfo_0, serverinfo_1, serverinfo_2);
-	}
+    private void ConfigDBInit(String serverinfo_0, String serverinfo_1, String serverinfo_2)
+    {
+	this.configdb = new ConfigDBClient(serverinfo_0, serverinfo_1, serverinfo_2);
+    }
 	
     /**
      * @Title: Subscriber.
      * @Description: the function which is used to subscribe one channel from redis server.
      * @param ip: the redis server ip address. 
-	 * @param channel: the specific channel which was subscribed by the application.
+     * @param channel: the specific channel which was subscribed by the application.
      * @return none.
      */
 	private void Subscriber(final String channel)
@@ -282,10 +282,10 @@ public class PersistentLayerClient
     /**
      * @Title: PersistentLayerClient.
      * @Description: the construct function of this PersistentLayerClient class.
-	 * @param serverinfo_0: the first redis server node ip & port information in the redis sentinel.
-	 * @param serverinfo_1: the second redis server node ip & port information in the redis sentinel.
+     * @param serverinfo_0: the first redis server node ip & port information in the redis sentinel.
+     * @param serverinfo_1: the second redis server node ip & port information in the redis sentinel.
      * @param serverinfo_2: the third redis server node ip & port information in the redis sentinel.
-	 * @param channel: the channel that subscribed by the PersistentLayerClient.
+     * @param channel: the channel that subscribed by the PersistentLayerClient.
      * @return none.
      */
 	public PersistentLayerClient(String serverinfo_0, String serverinfo_1, String serverinfo_2, String channel)
