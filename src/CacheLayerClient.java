@@ -87,7 +87,7 @@ public class CacheLayerClient
      * @FieldName: CachaInitOK.
      * @Description: the boolean value which shows the cache database client initialize ok or not.
      */
-    protected boolean CachaInitOK = false;
+    protected boolean CacheInitOK = false;
 	
     /**
      * @Title: ConfigDBInit.
@@ -209,7 +209,7 @@ public class CacheLayerClient
 		if(CacheShardingMap.size()>0)
 		{
 			this.CACHE_SERVER_NUM_NEW = CacheShardingMap.size(); 
-			this.CachaInitOK = true;
+			this.CacheInitOK = true;
 		}
 	}
 	
