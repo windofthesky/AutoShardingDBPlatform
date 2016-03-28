@@ -1,5 +1,5 @@
 /**
- * @Copyright to Hades.Yang 2015~2020.
+ * @Copyright to Hades.Yang 2015~2016.
  * @ClassName: ConfigDBClient.
  * @Project: AutoShardingDBPlatform.
  * @Package: generaldbplatform.
