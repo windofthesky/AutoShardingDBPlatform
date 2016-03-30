@@ -40,9 +40,6 @@ public class GeneralDBClient
      */
     protected boolean allClientOK = false;
     
-    
-
-    
     /**
      * @Title: PersistentLayerClient.
      * @Description: the construct function of this PersistentLayerClient class.
