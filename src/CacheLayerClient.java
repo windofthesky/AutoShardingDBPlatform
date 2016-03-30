@@ -109,56 +109,54 @@ public class CacheLayerClient
      * @param channel: the specific channel which was subscribed by the application.
      * @return none.
      */
-	private void Subscriber(final String channel)
+    private void Subscriber(final String channel)
+    {
+	final JedisPubSub jedisPubSub = new JedisPubSub() 
 	{
-		final JedisPubSub jedisPubSub = new JedisPubSub() 
+	    @Override	
+	    public void onMessage(String channel, String message) 
+	    {  
+	        //System.out.println("Input channel =="+channel + "----input message ==" + message); 
+		if(channel.equals("CACHE_AUTO_EXTERN"))
 		{
-			@Override	
-			public void onMessage(String channel, String message) 
-			{  
-		        //System.out.println("Input channel =="+channel + "----input message ==" + message); 
-		        
-		        if(channel.equals("CACHE_AUTO_EXTERN"))
-		        {
-		        	CacheShardMapInit(message);
-		        }
-		    }  
-		};
-		new Thread(new Runnable() 
-		{
-			@Override
-			public void run() 
-			{
-				//System.out.println("Start!!!"); 
-				
+		    CacheShardMapInit(message);
+		}
+            }  
+	};
+	new Thread(new Runnable() 
+	{
+	    @Override
+	    public void run() 
+	    {
+		//System.out.println("Start!!!"); 
                 Jedis jedisConnector = null;
-		        boolean borrowOrOprSuccess = true;
+		boolean borrowOrOprSuccess = true;
 		
-		        try 
-		        {
-			        jedisConnector = configdb.db_client.getResource();
-			        jedisConnector.subscribe(jedisPubSub, channel);
-		        }
-		        catch(JedisConnectionException e)
-		        {
-			        borrowOrOprSuccess = false;
-			        if(jedisConnector != null)
-			        {
-				        configdb.db_client.returnBrokenResource(jedisConnector);
-				        jedisConnector = null;
-			        }
-			        throw e;
-		        }
-		        finally
-		        {
-			        if(borrowOrOprSuccess && (jedisConnector!=null))
-			        {
-				        configdb.db_client.returnResource(jedisConnector);
-			        }
-		        }
-			}
-		}, "subscriberThread").start();
-	}
+		try 
+		{
+		    jedisConnector = configdb.db_client.getResource();
+		    jedisConnector.subscribe(jedisPubSub, channel);
+		}
+		catch(JedisConnectionException e)
+		{
+		    borrowOrOprSuccess = false;
+	            if(jedisConnector != null)
+		    {
+			configdb.db_client.returnBrokenResource(jedisConnector);
+			jedisConnector = null;
+		    }
+		    throw e;
+		}
+		finally
+		{
+	            if(borrowOrOprSuccess && (jedisConnector!=null))
+	            {
+			configdb.db_client.returnResource(jedisConnector);
+		    }
+		}
+	    }
+	}, "subscriberThread").start();
+    }
     
     /**
      * @Title: CacheShardMapInit.
@@ -167,51 +165,51 @@ public class CacheLayerClient
      *        the message should be like this:"1.0.0.1:6379_1.0.2.3:6349_1.0.0.5:5689;1.0.0.22:6379_1.10.2.3:6349_12.0.0.5:5689".
      * @return none.
      */
-	public void CacheShardMapInit(String info_message)
+    public void CacheShardMapInit(String info_message)
+    {
+	//create a temp set of String to store redis HostAndPort info.
+	Set<String> sentinel_temp = new HashSet<String>();
+		
+	//split the info_message like this:"1.0.0.1:6379_1.0.2.3:6349_1.0.0.5:5689",3 ip:port segments.
+	String[] arr_new_node = info_message.split(";");  //must split by ";".
+		
+	//Assign the old mod number to CACHE_SERVER_NUM_OLD.
+	this.CACHE_SERVER_NUM_OLD = CacheShardingMap.size();
+		
+	for(int i = 0; i < arr_new_node.length; i++)
 	{
-		//create a temp set of String to store redis HostAndPort info.
-		Set<String> sentinel_temp = new HashSet<String>();
-		
-	    //split the info_message like this:"1.0.0.1:6379_1.0.2.3:6349_1.0.0.5:5689",3 ip:port segments.
-		String[] arr_new_node = info_message.split(";");  //must split by ";".
-		
-		//Assign the old mod number to CACHE_SERVER_NUM_OLD.
-		this.CACHE_SERVER_NUM_OLD = CacheShardingMap.size();
-		
-		for(int i = 0; i < arr_new_node.length; i++)
-		{
-			//clear the old HostAndPort info.
-			sentinel_temp.clear();
+	    //clear the old HostAndPort info.
+	    sentinel_temp.clear();
 			
-			//split the "1.0.0.1:6379_1.0.2.3:6349_1.0.0.5:5689" like:"1.0.0.1:6379".
-			String[] arr_ip_port = arr_new_node[i].split("_");
+	    //split the "1.0.0.1:6379_1.0.2.3:6349_1.0.0.5:5689" like:"1.0.0.1:6379".
+	    String[] arr_ip_port = arr_new_node[i].split("_");
 			
-			//split the "1.0.0.1:6379" like: ip->1.0.0.1, port->6379.
-			String ip0 = arr_ip_port[0].split(":")[0];
-			int port0 = Integer.parseInt(arr_ip_port[0].split(":")[1]);
-			String ip1 = arr_ip_port[1].split(":")[0];
-			int port1 = Integer.parseInt(arr_ip_port[1].split(":")[1]);
-			String ip2 = arr_ip_port[2].split(":")[0];
-			int port2 = Integer.parseInt(arr_ip_port[2].split(":")[1]);
+	    //split the "1.0.0.1:6379" like: ip->1.0.0.1, port->6379.
+	    String ip0 = arr_ip_port[0].split(":")[0];
+	    int port0 = Integer.parseInt(arr_ip_port[0].split(":")[1]);
+	    String ip1 = arr_ip_port[1].split(":")[0];
+	    int port1 = Integer.parseInt(arr_ip_port[1].split(":")[1]);
+	    String ip2 = arr_ip_port[2].split(":")[0];
+	    int port2 = Integer.parseInt(arr_ip_port[2].split(":")[1]);
 			
-			//Initialize the sentinel host and port info.
-			sentinel_temp.add(new HostAndPort(ip0,port0).toString());
-			sentinel_temp.add(new HostAndPort(ip1,port1).toString());
-			sentinel_temp.add(new HostAndPort(ip2,port2).toString());
+	    //Initialize the sentinel host and port info.
+	    sentinel_temp.add(new HostAndPort(ip0,port0).toString());
+	    sentinel_temp.add(new HostAndPort(ip1,port1).toString());
+	    sentinel_temp.add(new HostAndPort(ip2,port2).toString());
 			
-			//Create a new JedisSentinelPool instance and insert it into CacheShardingMap with the latest mod index.
-			SentinelPool_TEMP = new JedisSentinelPool("mymaster"+CurrentCacheMapIndex, sentinel_temp, this.PoolConfig, this.SentinelPoolTimeout);
-			CacheShardingMap.put(CurrentCacheMapIndex, SentinelPool_TEMP);
-			CurrentCacheMapIndex += 1;
-		}
-		
-                //check the CacheShardingMap size and assign the value to CACHE_SERVER_NUM_NEW.
-		if(CacheShardingMap.size()>0)
-		{
-			this.CACHE_SERVER_NUM_NEW = CacheShardingMap.size(); 
-			this.CacheInitOK = true;
-		}
+	    //Create a new JedisSentinelPool instance and insert it into CacheShardingMap with the latest mod index.
+	    SentinelPool_TEMP = new JedisSentinelPool("mymaster"+CurrentCacheMapIndex, sentinel_temp, this.PoolConfig, this.SentinelPoolTimeout);
+	    CacheShardingMap.put(CurrentCacheMapIndex, SentinelPool_TEMP);
+	    CurrentCacheMapIndex += 1;
 	}
+		
+        //check the CacheShardingMap size and assign the value to CACHE_SERVER_NUM_NEW.
+	if(CacheShardingMap.size()>0)
+	{
+	    this.CACHE_SERVER_NUM_NEW = CacheShardingMap.size(); 
+	    this.CacheInitOK = true;
+	}
+    }
 	
 	
     /**
