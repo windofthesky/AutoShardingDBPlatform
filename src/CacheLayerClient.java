@@ -75,7 +75,7 @@ public class CacheLayerClient
      * @FieldName: CACHE_SERVER_NUM_NEW.
      * @Description: the new mod_number which is used to store/fetch value from the new HashMap.
      */
-     protected int CACHE_SERVER_NUM_NEW = 1;
+    protected int CACHE_SERVER_NUM_NEW = 1;
     
     /**
      * @FieldName: CacheShardingMap.
@@ -251,10 +251,10 @@ public class CacheLayerClient
      * @param key:long value which is indicates the value.
      * @return JedisSentinelPool: the Redis sentinel client which is used to access the Redis sentinel.
      */
-	public JedisSentinelPool getNewShardedCacheClient(long key)
-	{
-		return this.CacheShardingMap.get(((int)(key & 0xFF)) % this.CACHE_SERVER_NUM_NEW);
-	}
+    public JedisSentinelPool getNewShardedCacheClient(long key)
+    {
+	return this.CacheShardingMap.get(((int)(key & 0xFF)) % this.CACHE_SERVER_NUM_NEW);
+    }
 	
     /**
      * @Title: getOldShardedCacheClient.
@@ -262,10 +262,10 @@ public class CacheLayerClient
      * @param key: String value which is indicates the value.
      * @return JedisSentinelPool: the Redis sentinel client which is used to access the Redis sentinel.
      */
-	public JedisSentinelPool getOldShardedCacheClient(String key)
-	{
-		return this.CacheShardingMap.get((int)(key.toCharArray()[key.length()-1]) % this.CACHE_SERVER_NUM_OLD);
-	}
+    public JedisSentinelPool getOldShardedCacheClient(String key)
+    {
+	return this.CacheShardingMap.get((int)(key.toCharArray()[key.length()-1]) % this.CACHE_SERVER_NUM_OLD);
+    }
 	
     /**
      * @Title: getNewShardedCacheClient.
@@ -273,10 +273,10 @@ public class CacheLayerClient
      * @param key: String value which is indicates the value.
      * @return JedisSentinelPool: the Redis sentinel client which is used to access the Redis sentinel.
      */
-	public JedisSentinelPool getNewShardedCacheClient(String key)
-	{
-		return this.CacheShardingMap.get((int)(key.toCharArray()[key.length()-1]) % this.CACHE_SERVER_NUM_NEW);
-	}
+    public JedisSentinelPool getNewShardedCacheClient(String key)
+    {
+	return this.CacheShardingMap.get((int)(key.toCharArray()[key.length()-1]) % this.CACHE_SERVER_NUM_NEW);
+    }
 	
     /**
      * @Title: CacheLayerClient.
@@ -289,11 +289,11 @@ public class CacheLayerClient
      */
     public CacheLayerClient(String serverinfo_0, String serverinfo_1, String serverinfo_2, String channel)
     {
-		this.PoolConfig = new GenericObjectPoolConfig();
-		this.PoolConfig.setMaxIdle(25);
-		this.PoolConfig.setMaxTotal(250);
-		this.PoolConfig.setMaxWaitMillis(10000);
-		this.ConfigDBInit(serverinfo_0, serverinfo_1, serverinfo_2);
+	this.PoolConfig = new GenericObjectPoolConfig();
+	this.PoolConfig.setMaxIdle(25);
+	this.PoolConfig.setMaxTotal(250);
+	this.PoolConfig.setMaxWaitMillis(10000);
+	this.ConfigDBInit(serverinfo_0, serverinfo_1, serverinfo_2);
     	this.CacheShardingMap = new HashMap<Integer, JedisSentinelPool>();
     	this.Subscriber(channel);
     }
