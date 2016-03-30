@@ -211,7 +211,6 @@ public class CacheLayerClient
 	}
     }
 	
-	
     /**
      * @Title: getOldShardedCacheClient.
      * @Description: the function which is used to fetch the JedisSentinelPool mod by the CACHE_SERVER_NUM_OLD.
