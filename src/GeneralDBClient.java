@@ -15,7 +15,6 @@
 //package name.
 package generaldbplatform;
 
-
 public class GeneralDBClient 
 {
     /**
@@ -43,9 +42,9 @@ public class GeneralDBClient
     /**
      * @Title: PersistentLayerClient.
      * @Description: the construct function of this PersistentLayerClient class.
-     * @param serverinfo_0: the first redis server node ip & port information in the redis sentinel.
-     * @param serverinfo_1: the second redis server node ip & port information in the redis sentinel.
-     * @param serverinfo_2: the third redis server node ip & port information in the redis sentinel.
+     * @param serverinfo_0: the first redis server node ip & port information in the redis sentinel(config server).
+     * @param serverinfo_1: the second redis server node ip & port information in the redis sentinel(config server).
+     * @param serverinfo_2: the third redis server node ip & port information in the redis sentinel(config server).
      * @param cache_channel: the channel that subscribed by the CacheLayerClient.    
      * @param persist_channel: the channel that subscribed by the PersistentLayerClient.
      * @return none.
@@ -55,13 +54,13 @@ public class GeneralDBClient
     	this.mCacheClient = new CacheLayerClient(serverinfo_0, serverinfo_1, serverinfo_2, cache_channel);
     	this.mPersistClient = new PersistentLayerClient(serverinfo_0, serverinfo_1, serverinfo_2, persist_channel);
     	
-    	if((this.mCacheClient.CachaInitOK == true) && (this.mPersistClient.PersistInitOK == true))
-    	{
-    		this.allClientOK = true;
-    	}
-    	else
-    	{
-    		this.allClientOK = false;
-    	}
+    	//if((this.mCacheClient.CachaInitOK == true) && (this.mPersistClient.PersistInitOK == true))
+    	//{
+    	//	this.allClientOK = true;
+    	//}
+    	//else
+    	//{
+    	//	this.allClientOK = false;
+    	//}
     }
 }
