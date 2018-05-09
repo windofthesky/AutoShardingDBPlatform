@@ -1,0 +1,72 @@
+杨永刚
+男 | 31岁 | 1987年3月 | 已婚 | 8 年工作经验 | 本科
+陕西 西安
+手机：13991159063
+邮箱：windofthesky@aliyun.com
+教育背景
+2006年9月 -- 2010年6月 | 西北工业大学 | 计算机科学与技术 | 本科 | 全日制统招
+语言能力
+语种：英语(CET-6) | 听说能力：熟练 | 读写能力：熟练
+工作经验
+2017年2月 -- 至今 | 上海华腾 | 西安分公司-第四事业部 | 技术经理/项目经理
+公司性质：上市公司; | 公司规模：10000人+
+所属行业：互联网/移动互联网/电子商务
+职位类别：计算机/网络技术-系统分析师/架构师
+汇报对象：业务线经理 | 下属人数： 27人
+工作地点：陕西-西安
+职责描述：
+1.作为Technical Lead，参与公司PaaS平台转型项目，带领团队，完成旧平台接口RESTFul重构，Back-end Service微服务化，容器化(PCF Garden Container)工作; 2.作为架构师，与多地架构师团队密切合作，参与项目架构设计与讨论并输出相关交付件，完成相关PoC工作，包括Appium/AppDynamics Adoption，JMeter，PCF，Mulesoft，Jenkins Pipeline相关PoC； 3.负责公司私人银行/网上银行业务团队项目管理，应用敏捷实践，结合相关工具（JIRA/Confluence/Git etc.），完成项目从需求，架构，编码，测试到上线全流程相关工作； 4.负责VADM团队研发项目管理，完成MI/DaaSC APP相关开发工作(Push Notification Enhancement，Tealium/RASP Build-In etc.); 5.作为Scrum Master，在公司内部推动敏捷流程，并结合项目确定最佳敏捷实践； 6.参与公司团队组建与人员管理，作为面试官/培训讲师，全程参与公司招聘与人员培训； 7.作为项目经理，负责客户管理，成本控制，人员编制，绩效考核与团队激励相关工作； 期间获得MCA(Mulesoft Architecture Certification)认证架构师； 涉及领域技术： IaaS(vSphere/OpenStack)，PaaS(Cloud Foundry)，Container(Docker/Garden)，Mulesoft(XAPI/PAPI/SAPI)，Linux，APNS，Appium/AppDynamics ，JMeter，Jenkins，AWS，AEM等； 开发语言：Java，Python，Ruby，Go
+2014年7月 -- 2017年2月| 深圳兆日科技股份有限公司 | 西安分公司 | 产品研发经理
+公司性质：上市公司; | 公司规模：100-499人
+所属行业：互联网/移动互联网/电子商务
+职位类别：计算机/网络技术-系统分析师/架构师
+汇报对象：CTO | 下属人数： 12人
+工作地点：陕西-西安
+职责描述：
+1.负责公司即时通讯PaaS云平台-MSTP(Multiple Service Telecom Platform)架构设计与实现； 2.负责即时通讯PaaS平台监控系统后台架构和开发工作(基于Nagios+vCenter)； 3.负责公司PaaS云后台混合持久化存储层的架构和开发工作（NoSQL+SQL），与各域协商并设计接口； 4.基于Docker，搭建公司级自动化测试平台； 5.设计并搭建公司内部持续集成平台； 6.基于ELK Stack，设计并搭建公司级应用服务器日志分析系统； 7.Team内部服务架构设计/接口API Spec/功能测试类文档的开发编写工作； 8.带领团队，协调相关领域工作，负责团队技术能力建设； 9.技术预研，确定架构/模块/功能最佳实现方案以及应用微服务化预研； 10.公司基础测试平台架构与设计相关工作； 11.设计并实现公司PaaS平台朋友圈系统； 12.优化和重构MSTP平台，抽取公有服务并重新设计业务服务器操作流程； 13.设计并实现MSTP底层存储系统适配多类型数据存储架构； 14.研发体系建设，人员管理及培训； 15.需求分析，规划PaaS平台技术架构演进路线；
+涉及技术：
+MySQL/MySQL Cluster，Redis/Redis Cluster，MongoDB，Hadoop，HBase，MapReduce，Netty，Disruptor，Docker，Mesos/Swarm/K8S，ELK Stack，Jetty，Thrift，VMware vSphere，WebSocket，OpenStack，KVM、XEN，RocketMQ/Kafka等；
+开发语言：C/C++，Java， Python，C#
+产品简介：http://www.sinosun.com/mstp/
+2013年12月 -- 2014年6月 | 联咏电子科技(西安)有限公司 | PSW1 | 高级软件工程师
+公司性质：外商独资; | 公司规模：1000-9999人
+所属行业：计算机软件
+职位类别：计算机/网络技术-研发工程师
+汇报对象：分公司经理 | 下属人数： 2人
+工作地点：陕西-西安
+职责描述：
+1.开发数字电视协议核心软件模块 2.在Linux环境中开发数字电视各个标准的中间件及应用软件接口 3.在SOC系统平台上研发先进数字电视软件技术 4.开发并交付成熟的数字电视软件系统的解决方案
+2012年4月 -- 2013年12月 | 艾默生科技资源有限公司 | Dixell | 嵌入式软件工程师
+公司性质：外商独资; | 公司规模：10000人以上
+所属行业：IT服务（系统/数据/维护）
+职位类别：计算机/网络技术-研发工程师
+工作地点：陕西-西安
+职责描述：
+1.负责为基于Microchip PIC16/18 系列，Freescale ColdFire 架构系列MCU 的控制器产品开发Driver & Regulator程序 ；
+2.完成相关的Simulator工具开发及产品软件单元测试工作 ； 3.完成Dixell部门XR06CX，XR70CX，XW737K 等控制器的软件模块研发与测试，硬件设备调试工作；
+2010年3月 -- 2012年4月 | 西安研华软件有限公司 | DSIG | 软件工程师
+公司性质：外商独资; | 公司规模：1000-9999人
+所属行业：计算机硬件及网络设备
+职位类别：计算机/网络技术-研发工程师
+工作地点：陕西-西安
+职责描述：
+1.负责公司DISG 部门下属各产品线的软件研发工作； 2.基于Linux/Windows 平台APP，SDK 等开发工作以及部门产品维护升级工作。3.参与DSA RMS2.0 ITD项目，负责远程终端状态显示及设备报警输出功能； 4.参与DSA Signage项目，负责在C++ Builder 下开发控制端Client UI 工作； 5.M-Core RMS 客制化项目，主要负责新UI 及功能添加工作； 6.参加Ubiq360 工程测试系统开发（触屏设备），产品为生产线提供出厂检测；
+7.Windows Signage Player 优化工作，负责处理视频播放效果实现； 8.负责RMS2.0 Server UI 整体维护工作，负责Bug 修复以及性能优化工作；期间另负责Client 新功能添加（远端重启功能及log定期自动清除功能）； 9.负责DIVUS-481 ZigBee Module 添加工作；同时负责DIVUS 481 Brightness SDK 开发工作。 10.负责RMS2.0 Server UI 客制化任务，使其能够适应更高数量级的Client 端控制；
+开发语言：C，Java，C++，Python 系统平台：WindowsCE5.0/6.0,WindowsXP/7，Fedora，Ubuntu，Voyage，CentOS，OpenWRT 开发平台：Qt，Visual Studio 2008/2010，Python IDLE，VC6.0，Eclipse 应用平台：Bugzilla，SVN，Zigbee，LIRC
+项目经验
+DP(Dynamic Platform: PaaS项目) 2017.02-至今 公司：上海华腾 项目职务：技术经理/项目经理
+项目描述：
+Dynamic Platform项目是客户未来产品技术平台变革项目，主要目标在于将公司老的基于WAS/WPS实现的业务平台转型为基于PaaS云实现，主要工作内容涉及： 1.后台WAS服务接口微服务化，基于Cloud Foundry PaaS云实现（底层IaaS层，采用vSphere方案）; 2.前端采用AEM CMS系统重新实现，将ui.app与ui.content分离，为用户提供WebSite前端页面的直接编辑/修改能力； 3.中间件基于Spring Boot（PAPI） + MuleSoft（SAPI）实现，其中Sprint Boot负责基础业务逻辑处理，Mulesoft负责与现存系统交互，以此实现逻辑与数据分离； 4.全链路基于AppDynamics实现全业务流程APM监控管理； 5.将原有的版本变更流程DevOps化，基于Jenkins Pipeline+PCF Container，实现产品版本快速迭代；
+项目职责：
+1.作为Technical Lead，参与公司PaaS平台转型项目，带领团队，完成旧平台接口RESTFul重构，Back-end Service微服务化，容器化(PCF Garden Container)工作; 2.作为架构师，与多地架构师团队密切合作，参与项目架构设计与讨论并输出相关交付件，完成相关PoC工作，包括Appium/AppDynamics Adoption，JMeter，PCF，Mulesoft，Jenkins Pipeline相关PoC；
+MSTP（PaaS云） 2014.07-2017.02 公司：深圳兆日 项目职务：产品研发经理
+项目描述：
+作为兆日科技互联网转型核心业务PaaS平台，MSTP为用户提供以下能力： --基于MSTP移动平台，低成本，快速构建各种SaaS应用； --MSTP平台提供多类型客户端SDK，APP开发者可以快速定制； --MSTP平台采用轻量协议，优化交互流程，提供数据可靠传输和实时音视频服务； --MSTP平台提供全方位，多层次的安全防护体系； --MSTP平台基于虚拟化方案，采用微服务架构，确保稳定可靠，服务弹性扩展以及高效运维； --MSTP平台提供多种部署方式，支持公有云，混合云，私有云定制化部署方式；
+项目职责：
+1. 即时通讯PaaS云平台-MSTP架构设计与实现，参与MSTP需求分析架构设计及修改，制定设计方案; 2. PaaS平台监控系统架构设计及开发：基于Nagios+vCenter，通过将Nagios的丰富的监控项定制能力与 VMWare vCenter对虚拟服务器的调度能力相融合，为MSTP提供强大的监控和部署调度能力; 3. PaaS云混合持久化存储层的架构和开发工作：基于NoSQL与SQL型数据库各自的优势，将二者融合到一起，针对不同的数据类型，通过基于Client的路由方式，将数据路由到不同的存储节点，从而实现高可用与高性能的融合; 4. 基于Docker，搭建平台级自动化测试平台：为解决PaaS云自动化测试薄弱的问题，引入Docker框架，将PaaS各项服务Docker化，结合已有自动化测试框架，在少量服务器资源的情况下，完成PaaS云搭建与自动化测试; 5. PaaS持续集成平台：基于Jenkins和SonarQube，构建PaaS平台CI框架，快速完成代码检出，编译，测试流程，提高总体开发部署能力; 6. PaaS平台应用服务器日志分析系统：为解决PaaS平台大量应用服务日志收集统计分析离散化的问题，基于ELK Stack，搭建PaaS平台整体日志分析系统，将该系统与已有监控平台打通，实现应用日志告警与快速检索功能; 7. 设计团队内部私有服务产品架构，同时协商各域API需求，针对PaaS不同的应用服务，提供多租户API实现方案并带领团队完成相关开发与测试工作; 8. 技术预研，与各个应用服务器开发部门协调，将原有服务基于SOA原则，进行无状态化及微服务化改
+造; 9. PaaS平台朋友圈系统：设计MSTP PaaS平台内部朋友圈系统，完成核心时间线服务以及好友体系设计工作; 10. 优化和重构MSTP平台：在MSTP PaaS平台V1.0版本基础上，针对原有应用服务在线上暴露的问题，抽取9个公有业务，并完成相关公有业务设计工作，输出方案并交付开发; 11.设计并实现MSTP底层存储系统适配多类型数据存储架构：针对一线反馈数据库选型问题，重构存储方案，适配多类型数据库，快速完成数据库类型的切换，为销售部门提供技术支持; 12.PaaS平台技术架构演进：研究基于OpenStack+KVM的开源IaaS解决方案，为PaaS平台扩张提供低成本解决方案;
+获得荣誉
+计算机软件著作权一项（软著登字第0160109号_登记号 2009SR033110） 2009年FIRA世界杯机器人大赛中国队选拔赛仿真型11vs11项目 国家一等奖 2008中国机器人大赛暨RoboCup公开赛FIRA仿真型11vs11项目组国家三等奖
+其他
+Github : https://github.com/windofthesky
+熟练使用C/C++，Java，汇编语言； 熟悉C#，Python, HTML, JavaScript及.NET Framework； 熟悉SQL Server，MySQL，NoSQL(Redis,Memcached,CouchBase,MongoDB等)各类型数据库能够进行数据库架构和接口设计，性能优化工作；了解Hadoop，HDFS，MapReduce，Spark，Storm； 良好的数据结构及算法功底； 熟悉嵌入式开发流程，有多年开发经验； 熟悉敏捷开发流程，具备多年实践经验，担任过Scrum Master； 熟悉软件工程相关原理，能够编写稳定高效代码； 熟悉测试工作，能够设计编写手动/自动测试用例； 熟悉TCP/IP 协议簇，无线通信与网络相关知识； 熟悉Linux， 对内核与外设均有研究，能够进行相关定制裁剪以及程序设计工作； 熟悉Solaris 系统，具备系统安装，操作，管理经验； 具备Windows 下APP，SDK 开发经验； 熟悉网站搭建过程，能够完成后台搭建及页面设计； 熟练使用C++ Builder，VS2005/ 2008/2010/2012，QT4/5，Eclipse等开发工具； 具有硬件调试及分析能力，熟悉Microchip/Freescale MCU，能够进行C/汇编开发； 具备即时通信软件开发经验，了解QXMPP/LibJingle； 熟悉ATSC/DVB/13818-1/DTMB/CI+/DEMUX/MHEG5等数字电视相关应用； 熟悉OpenWRT，Codis，LevelDB，Keepalived，ZooKeeper等开源软件； 熟悉JMeter，AppDynamics，Mulesoft，Appium，Selenium, Cucumber； 熟悉容器(LXC, Docker)以及虚拟化实现方案(KVM，XEN，vSphere)；
