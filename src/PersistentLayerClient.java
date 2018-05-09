@@ -10,6 +10,7 @@
  * @History: 
  *    1.2015-07-21 First version of PersistentLayerClient was written.
  *    2.2015-08-13 Modify subscribe interface,add ConfigDBClient support. 
+ http://teams.in.hsbc/hts/Academy/HSDC Training Delivery/GCP/Lists/Confirmation for GCP Insourcing Case/AllItems.aspx
  */
 
 package generaldbplatform;
